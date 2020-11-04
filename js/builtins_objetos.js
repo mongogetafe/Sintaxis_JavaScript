@@ -1,7 +1,7 @@
 // Métodos y propiedades propios de JavaScript para arrays de objetos
 
 let jugadores = [
-    {nombre: 'María', apellidos: 'Pérez', puntuacion: 4.6},
+    {nombre: 'María', apellidos: 'Zuil', puntuacion: 4.6},
     {nombre: 'Juan', apellidos: 'Gómez', puntuacion: 7},
     {nombre: 'Laura', apellidos: 'López', puntuacion: 9.6}
 ];
@@ -85,24 +85,26 @@ console.log(jugadores);
 // Permite pasar funciones como argumentos
 
 function compararAscend (a, b) {
-    if (a.apellidos < b.apellidos) {
-        return -1;
-    }
-    if (a.nombre > b.nombre) {
+    if (a.apellidos > b.apellidos) {
         return 1;
     }
-    return 0;
-}
-
-function compararDescend (a, b) {
     if (a.apellidos < b.apellidos) {
-        return 1;
-    }
-    if (a.nombre > b.nombre) {
         return -1;
     }
     return 0;
 }
 
-jugadores.sort(compararDescend);
+function compararDescend (c, d) {  // Importante los parámetros diferentes porque 
+    if (c.apellidos < d.apellidos) { // los paramétros no primitivos pasan por referencia
+        return 1;
+    }
+    if (c.apellidos > d.apellidos) {
+        return -1;
+    }
+    return 0;
+}
+
+jugadores.sort(compararAscend);
+
 console.log(jugadores);
+
